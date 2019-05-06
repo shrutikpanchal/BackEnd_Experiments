@@ -16,11 +16,14 @@ public interface ILevel
 
 public class Level : ILevel
 {
-    string scene;
-    float speed, mspeed;
-    GameObject target, playerN;
-    int maxMonsters, cloneMonsters, monsterMass;
+    string scene; // Storing Scene Name
+    float speed, mspeed; // Storing player speed and monster speed to player
+    GameObject target, playerN; // Storing target information and player information
+    int maxMonsters, cloneMonsters, monsterMass; // Storing maximum monster on game at a time, current number of monsters and
+    // life of monsters per Level though there will be changes...
 
+
+    // Setting up default constructor with default scene name as Level 1
     public Level (string LevelName = "Level_1")
     {
         // Getting the current scene name
@@ -31,21 +34,21 @@ public class Level : ILevel
 
         // Updates Specific to Level
         switch (LevelName) {
-            case "Level_1":
+            case "Level_1": // Specifications for Level 1
                 this.speed = 0.08f;
                 this.mspeed = 0.07f;
                 this.maxMonsters = 5;
                 this.cloneMonsters = 0;
                 this.monsterMass = 4;
                 break;
-            case "Level_2":
+            case "Level_2":// Specifications for Level 2
                 this.speed = 0.15f;
                 this.mspeed = 0.07f;
                 this.maxMonsters = 7;
                 this.cloneMonsters = 0;
                 this.monsterMass = 6;
                 break;
-            case "Level_3":
+            case "Level_3":// Specifications for Level 3
                 this.speed = 0.2f;
                 this.mspeed = 0.07f;
                 this.maxMonsters = 9;
@@ -54,10 +57,12 @@ public class Level : ILevel
                 break;
         }
 
+        // Getting position to end the level..
         this.EndObject = GameObject.Find("End");
     }
 
-    public float PlayerSpeed {
+    //Implementing Properties from Interface
+    public float PlayerSpeed { 
         get { return speed; }
         set { speed = value; }
     }

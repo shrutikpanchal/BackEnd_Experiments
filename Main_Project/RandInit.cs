@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class RandInit : MonoBehaviour
 {
-    ILevel level;
-    GameObject player;
+    ILevel level; // Creating object of Interface Class..
+    GameObject player; // Getting Current player position..
     
     void Start()
     {
